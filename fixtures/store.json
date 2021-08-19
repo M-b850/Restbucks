@@ -1,0 +1,191 @@
+[
+    {
+        "model": "core.production",
+        "pk": 1,
+        "fields": {
+          "name": "Latte",
+          "CN": "MILK",
+          "price": 4.00
+        }
+      },
+      {
+        "model": "core.production",
+        "pk": 2,
+        "fields": {
+          "name": "Cappuccino",
+          "CN": "Size",
+          "price": 2.00
+        }
+      },
+      {
+        "model": "core.production",
+        "pk": 3,
+        "fields": {
+          "name": "Espresso",
+          "CN": "Shots",
+          "price": 1.00
+        }
+      },
+      {
+        "model": "core.production",
+        "pk": 4,
+        "fields": {
+          "name": "Tea",
+          "CN": "",
+          "price": 1.00
+        }
+      },
+      {
+        "model": "core.production",
+        "pk": 5,
+        "fields": {
+          "name": "Hot chocolate",
+          "CN": "Size",
+          "price": 4.00
+        }
+      },
+      {
+        "model": "core.production",
+        "pk": 6,
+        "fields": {
+          "name": "Cookie",
+          "CN": "Kind",
+          "price": 4.00
+        }
+      },
+      {
+        "model": "core.customization",
+        "pk": 1,
+        "fields": {
+          "name": "Milk",
+          "slug": "Milk",
+          "production": 1
+        }
+      },
+      {
+        "model": "core.customization",
+        "pk": 2,
+        "fields": {
+          "name": "Size",
+          "slug": "Size",
+          "production": 2
+        }
+      },
+      {
+        "model": "core.customization",
+        "pk": 3,
+        "fields": {
+          "name": "Shots",
+          "slug": "Shots",
+          "production": 3
+        }
+      },
+      {
+        "model": "core.customization",
+        "pk": 4,
+        "fields": {
+          "name": "Kind",
+          "slug": "Kind",
+          "production": 4
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 1,
+        "fields": {
+          "name": "SKIM",
+          "slug": "SKIM",
+          "customization": 1
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 2,
+        "fields": {
+          "name": "SEMI",
+          "slug": "SEMI",
+          "customization": 1
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 3,
+        "fields": {
+          "name": "WHOLE",
+          "slug": "WHOLE",
+          "customization": 1
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 4,
+        "fields": {
+          "name": "SMALL",
+          "slug": "SMALL",
+          "customization": 2
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 5,
+        "fields": {
+          "name": "MEDIUM",
+          "slug": "MEDIUM",
+          "customization": 2
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 6,
+        "fields": {
+          "name": "LARGE",
+          "slug": "LARGE",
+          "customization": 2
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 7,
+        "fields": {
+          "name": "SINGLE",
+          "slug": "SINGLE",
+          "customization": 3
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 8,
+        "fields": {
+          "name": "DOUBLE",
+          "slug": "DOUBLE",
+          "customization": 3
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 9,
+        "fields": {
+          "name": "TRIPLE",
+          "slug": "TRIPLE",
+          "customization": 3
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 10,
+        "fields": {
+          "name": "CHOCOLATE CHIP",
+          "slug": "CHOCOLATE_CHIP",
+          "customization": 4
+        }
+      },
+      {
+        "model": "core.tag",
+        "pk": 11,
+        "fields": {
+          "name": "GINGER",
+          "slug": "GINGER",
+          "customization": 4
+        }
+      }
+]
