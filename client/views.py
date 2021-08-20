@@ -4,10 +4,13 @@ from rest_framework import generics, mixins, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
+from client.permissions import IsOwner
 from rest_framework.response import Response
 
 from core.models import Customization, Production, Order, Tag
-from client.serializers import ProductionSerializer, OrderSerializer, TagSerializer, OrderTagSerializer
+from client.serializers import (
+    ProductionSerializer, OrderSerializer, TagSerializer, OrderTagSerializer, BaseOrderSerializer
+)
 
 class ProductionList(generics.GenericAPIView):
     """ List of all productions. """
@@ -73,3 +76,44 @@ class OrderCustomizations(APIView):
         return Response({'success': 'Tag saved.'}, status=status.HTTP_200_OK)
 
 
+class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
+    """ Retrieve, update or delete an order. """
+    queryset = Order.objects.all()
+    serializer_class = BaseOrderSerializer
+    permission_classes = (IsOwner,)
+
+    def get_object(self):
+        """ Return the order. """
+        return Order.objects.get(id=self.kwargs['pk'])
+
+    def get(self, request, *args, **kwargs):
+        """ Return the order. """
+        order = self.get_object()
+        serializer = BaseOrderSerializer(order)
+        return Response(serializer.data)
+
+    
+    def put(self, request, *args, **kwargs):
+        """ Update the order. """
+
+        order = self.get_object()
+
+        # if status not waiting, return 400
+        if not order.status == 'waiting':
+            return Response({'error': 'You\re out of time, sorry :).'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        serializer = BaseOrderSerializer(order, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, *args, **kwargs):
+        """ Delete the order. """
+        order = self.get_object()
+        # if status not waiting, return 400
+        if not order.status == 'waiting':
+            return Response({'error': 'You\re out of time, sorry :).'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        order.delete()
+        return Response(message='Order deleted.', status=status.HTTP_204_NO_CONTENT)
