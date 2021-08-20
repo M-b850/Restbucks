@@ -44,6 +44,6 @@ class OrderAdmin(admin.ModelAdmin):
     )
 
     def save_model(self, request, obj, form, change):
-        if len(form.changed_data) > 0:
+        if 'tag' in form.changed_data:
             obj.tag = form.cleaned_data['tag']
         super(OrderAdmin, self).save_model(request, obj, form, change)
