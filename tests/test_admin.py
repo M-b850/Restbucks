@@ -20,7 +20,7 @@ class TestCustomAdmin(TestCase):
         expected_id = (
                     ('Client', {'fields': ('owner',)
                         }),
-                    ('Order', {'fields': ('status', 'product', 'quantity', 'price', 'tag')
+                    ('Order', {'fields': ('status', 'product', 'quantity', 'price', 'tag', 'customization')
                         }),
                     ('Customizations', {
                         'fields': ('MILK', 'SIZE', 'SHOTS', 'KIND')
