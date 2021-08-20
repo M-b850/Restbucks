@@ -73,7 +73,7 @@ class OrderCustomizations(APIView):
         obj.tag = Tag.objects.get(pk=request.data['tag'])
         obj.customization = Customization.objects.get(pk=obj.tag.customization.pk)
         obj.save()
-        return Response({'success': 'Tag saved.'}, status=status.HTTP_200_OK)
+        return redirect('/client/order/' + str(obj.id))
 
 
 class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
