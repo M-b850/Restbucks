@@ -43,7 +43,7 @@ class OrderCreate(generics.CreateAPIView):
 
 
 class OrderCustomizations(APIView):
-    """ List of all customizations for a given order. """
+    """ List of all Tags for a given order. """
     serializer_class = OrderTagSerializer
     permission_classes = (IsAuthenticated, )
 
@@ -71,3 +71,5 @@ class OrderCustomizations(APIView):
         obj.customization = Customization.objects.get(pk=obj.tag.customization.pk)
         obj.save()
         return Response({'success': 'Tag saved.'}, status=status.HTTP_200_OK)
+
+
