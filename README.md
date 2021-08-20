@@ -2,7 +2,7 @@
 An RESTful django development challenge for managing a small coffee shop.
 
 
-###Commands:
+## Commands
 ~~~~~~~~
 git clone https://github.com/M-b850/Restbucks.git
 cd Restbucks/
@@ -16,3 +16,8 @@ pip install -r requirements.txt
 
 :) Enjoy.
 ~~~~~~~~
+
+## TODO
+1. Tests for client app. [  ]
+2. Make Tag choices more clean in code. [  ]
+3. Clean admin.py and use comments. [  ]
