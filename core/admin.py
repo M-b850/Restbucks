@@ -29,13 +29,13 @@ class ProductionAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     form = OrderForm
     list_display = ('id', 'owner', 'status', 'price')
-    readonly_fields = ('tag',)
+    readonly_fields = ('tag', 'customization')
     fieldsets = (
         (
             'Client', {'fields': ('owner',)}
         ),
         (
-            'Order', {'fields': ('status', 'product', 'quantity', 'price', 'tag')}
+            'Order', {'fields': ('status', 'product', 'quantity', 'price', 'tag', 'customization')}
         ),
         (
             'Customizations', {
