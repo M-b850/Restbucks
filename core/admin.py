@@ -35,7 +35,7 @@ class OrderAdmin(admin.ModelAdmin):
             'Client', {'fields': ('owner',)}
         ),
         (
-            'Order', {'fields': ('status', 'product', 'quantity', 'price', 'tag', 'customization')}
+            'Order', {'fields': ('status', 'product', 'quantity', 'price', ('tag', 'customization', 'consume_location'))}
         ),
         (
             'Customizations', {

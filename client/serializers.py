@@ -12,7 +12,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('id', 'product', 'quantity')
+        fields = ('id', 'product', 'quantity', 'consume_location')
         read_only_fields = ('id', 'status', 'price',)
 
 
@@ -39,7 +39,7 @@ class BaseOrderSerializer(serializers.ModelSerializer):
     tag = OrderTagSerializer()
     class Meta:
         model = Order
-        fields = ('id', 'product', 'quantity', 'customization', 'tag', 'status', 'price', )
+        fields = ('id', 'product', 'quantity', 'customization', 'tag', 'status', 'price', 'consume_location')
         read_only_fields = ('id', 'status', 'price', 'customization',)
 
     def to_representation(self, obj):
@@ -54,6 +54,7 @@ class BaseOrderSerializer(serializers.ModelSerializer):
             'customization': obj.customization,
             'tag': tag_,
             'status': obj.status,
+            'consume_location': obj.consume_location,
             'price': obj.price,
         }
 

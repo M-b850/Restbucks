@@ -65,7 +65,7 @@ class Order(models.Model):
     )
     date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=12, choices=choices.STATUS_CHOICES, default='waiting')
-
+    consume_location = models.CharField(max_length=10, choices=choices.CONSUME_LOCATION_CHOICES)
 
     @property
     def get_total_price(self):
